@@ -4,7 +4,7 @@ import { useRandom } from './hooks/useRandom';
 
 function App() {
   const { randomQuery } = useRandom({
-    queryKey: ['randomNumber12'],
+    queryKey: ['randomNumber1'],
     queryFn: getCryptoNumber,
   });
   return (
