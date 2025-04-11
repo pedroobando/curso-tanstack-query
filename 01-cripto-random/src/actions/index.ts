@@ -1,0 +1,1 @@
+export { getCryptoNumber } from './getCrytoNumber';
