@@ -9,7 +9,10 @@ export const ListView = () => {
   const [state, setState] = useState<GithubState>(GithubState.All);
   const [selectedLabel, setSelectedLabel] = useState<string[]>([]);
 
-  const { issuesQuery } = useIssues({ state, selectedLabel });
+  const { issuesQuery, page, nextPage, prevPage } = useIssues({
+    state,
+    selectedLabel,
+  });
   const issues = issuesQuery.data ?? [];
 
   const handleStateChange = (newState: GithubState) => {
@@ -17,14 +20,11 @@ export const ListView = () => {
   };
 
   const onSelectedLabel = (label: string) => {
-    console.log(label);
     if (selectedLabel.includes(label)) {
       setSelectedLabel(selectedLabel.filter((l) => l !== label));
     } else {
       setSelectedLabel([...selectedLabel, label]);
     }
-
-    console.log(selectedLabel);
   };
 
   return (
@@ -33,11 +33,28 @@ export const ListView = () => {
         {issuesQuery.isLoading ? (
           <LoadingSpinner />
         ) : (
-          <IssueList
-            issues={issues}
-            onStateChange={handleStateChange}
-            activeState={state}
-          />
+          <>
+            <IssueList
+              issues={issues}
+              onStateChange={handleStateChange}
+              activeState={state}
+            />
+            <div className="flex justify-between items-center">
+              <button
+                onClick={prevPage}
+                className="p-2 bg-blue-500 hover:bg-blue-700 rounded-md transition-all"
+              >
+                Anteriores
+              </button>
+              <span className="text-gray-500">{page}</span>
+              <button
+                onClick={nextPage}
+                className="p-2 bg-blue-500 hover:bg-blue-700 rounded-md transition-all"
+              >
+                Siguientes
+              </button>
+            </div>
+          </>
         )}
       </div>
       <div className="col-span-1 px-2">

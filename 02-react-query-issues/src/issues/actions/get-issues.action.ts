@@ -1,10 +1,11 @@
 import { githubApi } from '../../api/github.api';
-import { sleep } from '../../helpers';
 import { GithubIssue, GithubState } from '../interfaces';
+import { sleep } from '../../helpers';
 
 export const getIssues = async (
   state: GithubState,
-  selectedLabel: string[]
+  selectedLabel: string[],
+  page: number
 ): Promise<GithubIssue[]> => {
   await sleep(1500);
 
@@ -17,6 +18,9 @@ export const getIssues = async (
   if (selectedLabel.length > 0) {
     params.append('labels', selectedLabel.join(','));
   }
+
+  params.append('page', `${page}`);
+  params.append('per_page', '5');
 
   const { data } = await githubApi.get<GithubIssue[]>('/issues', { params });
   return data;
