@@ -1,0 +1,13 @@
+# version: '3.8'
+
+services:
+  jsonsrvfake:
+    image: jsonimgfake
+    build: .
+    container_name: jsonsrvfake
+    ports:
+      - "3100:3100"
+    # volumes:
+    #   - .:/var/www/fake
+    environment:
+      - NODE_ENV=development

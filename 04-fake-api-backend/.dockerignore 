@@ -1,0 +1,8 @@
+node_modules/
+.git/
+pnpm-lock.yaml
+docker-compose.yml
+Dockerfile
+.git
+.env.template
+.DS_Store
