@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 export const ProductbyId = () => {
   const { id } = useParams();
-  const { product, isLoading } = useProduct({ id: Number(id) });
+  const { product, isLoading } = useProduct({ id: id! });
 
   //INFO: This effect is used to scroll to the top of the page when the component is mounted or when the id changes.
   useEffect(() => {

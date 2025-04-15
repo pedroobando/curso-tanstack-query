@@ -2,10 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import { ProductsActions } from '..';
 
 interface ProductOptions {
-  id: number;
+  id: string;
 }
 
-export const useProduct = ({ id = 0 }: ProductOptions) => {
+export const useProduct = ({ id = '' }: ProductOptions) => {
   const {
     data: product,
     isLoading,
@@ -15,7 +15,7 @@ export const useProduct = ({ id = 0 }: ProductOptions) => {
   } = useQuery({
     queryKey: ['product', id],
     queryFn: () => ProductsActions.getProductById(id),
-    staleTime: 1000 * 60 * 60 * 2, // 2 minutes
+    staleTime: 1000 * 60 * 60 * 1, // 2 minutes
   });
 
   return { product, isLoading, isError, error, isFetching };

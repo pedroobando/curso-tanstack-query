@@ -16,3 +16,4 @@ export * as ProductsActions from './services/actions';
 export { useProducts } from './hooks/useProducts';
 export { usePrefProduct } from './hooks/usePrefProduct';
 export { useProduct } from './hooks/useProduct';
+export { useProductMutation } from './hooks/useProductMutation';

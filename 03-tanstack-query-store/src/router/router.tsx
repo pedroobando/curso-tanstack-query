@@ -21,6 +21,10 @@ export const router = createBrowserRouter([
         element: <WomensPage />,
       },
       {
+        path: 'electronic',
+        element: <CompleteListPage category={'electronics'} />,
+      },
+      {
         path: 'new',
         element: <NewProduct />,
       },

@@ -8,7 +8,7 @@ import { router } from './router/router.tsx';
 import './index.css';
 import { TanStackProvider } from './plugin/TanStackProvider.tsx';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('store')!).render(
   <React.StrictMode>
     <TanStackProvider>
       <NextUIProvider>

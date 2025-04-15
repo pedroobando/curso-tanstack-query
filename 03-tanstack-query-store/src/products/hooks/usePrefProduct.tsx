@@ -4,9 +4,9 @@ import { ProductsActions } from '..';
 export const usePrefProduct = () => {
   const queryClient = useQueryClient();
 
-  const prefecthProduct = (id: number) => {
+  const prefecthProduct = (id: string) => {
     queryClient.prefetchQuery({
-      queryKey: ['product', id],
+      queryKey: ['product', id.toString()],
       queryFn: () => ProductsActions.getProductById(id),
       staleTime: 1000 * 60 * 60 * 2, // 2 minutos
     });

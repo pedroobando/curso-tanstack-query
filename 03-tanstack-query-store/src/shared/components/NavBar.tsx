@@ -8,6 +8,7 @@ const routes = [
   { to: '/', text: 'Todo' },
   { to: '/men', text: 'Hombres' },
   { to: '/women', text: 'Mujeres' },
+  { to: '/electronic', text: 'Electronica' },
 ];
 
 export const NavBar = () => {
@@ -30,7 +31,7 @@ export const NavBar = () => {
 
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={NavLink} color="primary" to="/new" variant="flat">
+          <Button as={NavLink} color="primary" to="/new" variant="flat" className="mr-6">
             Nuevo producto
           </Button>
         </NavbarItem>
